@@ -16,21 +16,23 @@ namespace Quest
 
         // Add a new immutable property to the Adventurer class called ColorfulRobe. The type of this property should be Robe.
         public Robe ColorfulRobe { get; }
+        public Hat Hat { get; }
 
         // A constructor to make a new Adventurer object with a given name
         // Add a new constructor parameter to the Adventurer class to accept a Robe and to set the ColorfulRobe property.
-        public Adventurer(string name, Robe robe)
+        public Adventurer(string name, Robe robe, Hat hat)
         {
             Name = name;
             Awesomeness = 50;
             ColorfulRobe = robe;
+            Hat = hat;
         }
         string dispString = "";
         private string DisplayColors(List<string> colors)
         {
             foreach (string color in colors)
             {
-                dispString += $" {color},";
+                dispString += $"{color} ";
             }
             return dispString;
         }
@@ -38,7 +40,7 @@ namespace Quest
         // Add a new method to the Adventurer class called GetDescription. This method should return a string that contains the adventurer's name and a description of their robe.
         public string GetDescription()
         {
-            return $"{Name} has a {DisplayColors(ColorfulRobe.Colors)} robe that is {ColorfulRobe.Length} feet long.";
+            return $"{Name} has a {Hat.ShininessDescription()} hat and a {DisplayColors(ColorfulRobe.Colors)}robe that is {ColorfulRobe.Length} feet long.";
         }
 
         // This method returns a string that describes the Adventurer's status
