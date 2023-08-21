@@ -54,8 +54,13 @@ namespace Quest
                 Length = 3
             };
 
+            Hat AdventurerHat = new Hat()
+            {
+                ShininessLevel = 6
+            };
+
             //and pass that name to the Adventurer constructor when creating the new Adventurer object.
-            Adventurer theAdventurer = new Adventurer(AdventurerName, AdventurerRobe);
+            Adventurer theAdventurer = new Adventurer(AdventurerName, AdventurerRobe, AdventurerHat);
             Console.WriteLine(theAdventurer.GetDescription());
             bool playAgain = true;
             while (playAgain)
