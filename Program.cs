@@ -58,6 +58,8 @@ namespace Quest
             {
                 ShininessLevel = 6
             };
+            Prize AdventurerPrize = new Prize("Your awesomeness is outstanding!!!");
+
 
             //and pass that name to the Adventurer constructor when creating the new Adventurer object.
             Adventurer theAdventurer = new Adventurer(AdventurerName, AdventurerRobe, AdventurerHat);
@@ -91,6 +93,8 @@ namespace Quest
                 {
                     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
                 }
+
+                AdventurerPrize.ShowPrize(theAdventurer);
 
                 Console.WriteLine($"{theAdventurer.Name}, Would you like to play again? Y/N");
                 string playAnswer = Console.ReadLine();
