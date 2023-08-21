@@ -39,8 +39,12 @@ namespace Quest
             int maxAwesomeness = 100;
 
             //Make a new adventurer object using the Adventurer class
+            // prompt the user for their name 
+            Console.WriteLine("What is your Adventurer's Name?");
+            string AdventurerName = Console.ReadLine();
 
-            Adventurer theAdventurer = new Adventurer("Jack");
+            //and pass that name to the Adventurer constructor when creating the new Adventurer object.
+            Adventurer theAdventurer = new Adventurer(AdventurerName);
 
             List<Challenge> challenges = new List<Challenge>()
             {
