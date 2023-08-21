@@ -43,8 +43,20 @@ namespace Quest
             Console.WriteLine("What is your Adventurer's Name?");
             string AdventurerName = Console.ReadLine();
 
+            // In Program.cs create a new instance of the Robe class and set its properties.
+            // Pass the new Robe into the constructor of the Adventurer.
+            //Before the adventurer starts their challenge, call the GetDescription method and print the results to the console.
+            List<string> colors = new List<string>() { "red", "blue", "yellow" };
+
+            Robe AdventurerRobe = new Robe()
+            {
+                Colors = colors,
+                Length = 3
+            };
+
             //and pass that name to the Adventurer constructor when creating the new Adventurer object.
-            Adventurer theAdventurer = new Adventurer(AdventurerName);
+            Adventurer theAdventurer = new Adventurer(AdventurerName, AdventurerRobe);
+            Console.WriteLine(theAdventurer.GetDescription());
             bool playAgain = true;
             while (playAgain)
             {
