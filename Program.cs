@@ -45,31 +45,52 @@ namespace Quest
 
             //and pass that name to the Adventurer constructor when creating the new Adventurer object.
             Adventurer theAdventurer = new Adventurer(AdventurerName);
+            bool playAgain = true;
+            while (playAgain)
+            {
 
-            List<Challenge> challenges = new List<Challenge>()
+                List<Challenge> challenges = new List<Challenge>()
             {
                 twoPlusTwo, theAnswer, whatSecond, guessRandom, favoriteBeatle
             };
 
-            // Loop through all the challenges and subject the Adventurer to them
-            foreach (Challenge challenge in challenges)
-            {
-                challenge.RunChallenge(theAdventurer);
-            }
+                // Loop through all the challenges and subject the Adventurer to them
+                foreach (Challenge challenge in challenges)
+                {
+                    challenge.RunChallenge(theAdventurer);
+                }
 
-            // This code examines how Awesome the Adventurer is after completing the challenges
-            // And praises or humiliates them accordingly
-            if (theAdventurer.Awesomeness >= maxAwesomeness)
-            {
-                Console.WriteLine("YOU DID IT! You are truly awesome!");
-            }
-            else if (theAdventurer.Awesomeness <= minAwesomeness)
-            {
-                Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
-            }
-            else
-            {
-                Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                // This code examines how Awesome the Adventurer is after completing the challenges
+                // And praises or humiliates them accordingly
+                if (theAdventurer.Awesomeness >= maxAwesomeness)
+                {
+                    Console.WriteLine("YOU DID IT! You are truly awesome!");
+                }
+                else if (theAdventurer.Awesomeness <= minAwesomeness)
+                {
+                    Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
+                }
+                else
+                {
+                    Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                }
+
+                Console.WriteLine($"{theAdventurer.Name}, Would you like to play again? Y/N");
+                string playAnswer = Console.ReadLine();
+                if (playAnswer.ToLower() == "y")
+                {
+                    playAgain = true;
+                    Console.Clear();
+                }
+                else
+                {
+                    playAgain = false;
+                    Console.WriteLine("----------------------");
+                    Console.WriteLine("Thank you for playing.");
+                }
+
+
+
             }
         }
     }
