@@ -17,6 +17,12 @@ namespace Quest
             //   a number of awesome points to gain or lose depending on the success of the challenge
 
             Challenge twoPlusTwo = new Challenge("2 + 2?", 4, 10);
+            Challenge howManyStates = new Challenge("How many states are there in the USA?", 50, 25);
+            Challenge howManyContinents = new Challenge("How many continents are there?", 7, 35);
+            Challenge noRoman = new Challenge("What number does not have a roman numeral?", 0, 25);
+            Challenge popularNumber = new Challenge("What number is the most popular two-digit number?", 13, 25);
+            Challenge luckiestNumber = new Challenge("What number is the luckies single digit number?", 7, 25);
+            Challenge alphabetNumber = new Challenge("What is the only number spelled with letters in alphabetical order?", 40, 40);
             Challenge theAnswer = new Challenge(
                 "What's the answer to life, the universe, and everything?", 42, 25);
             Challenge whatSecond = new Challenge(
@@ -60,9 +66,17 @@ namespace Quest
             };
             Prize AdventurerPrize = new Prize("Your awesomeness is outstanding!!!");
 
-
             //and pass that name to the Adventurer constructor when creating the new Adventurer object.
+            int correctAnswers = 0;
             Adventurer theAdventurer = new Adventurer(AdventurerName, AdventurerRobe, AdventurerHat);
+
+            int Roll(int i)
+            {
+                int randomNumber = new Random().Next(0, i);
+                return randomNumber;
+            }
+
+
             Console.WriteLine(theAdventurer.GetDescription());
             bool playAgain = true;
             while (playAgain)
@@ -70,13 +84,19 @@ namespace Quest
 
                 List<Challenge> challenges = new List<Challenge>()
             {
-                twoPlusTwo, theAnswer, whatSecond, guessRandom, favoriteBeatle
+                twoPlusTwo, theAnswer, whatSecond, guessRandom, favoriteBeatle, howManyStates, noRoman, popularNumber, luckiestNumber, howManyContinents, alphabetNumber
             };
-
-                // Loop through all the challenges and subject the Adventurer to them
-                foreach (Challenge challenge in challenges)
+                theAdventurer.Awesomeness = theAdventurer.Awesomeness + (correctAnswers * 10);
+                Console.WriteLine($"{theAdventurer.Name}, your awesomeness level is {theAdventurer.Awesomeness}.");
+                List<int> challengeList = new List<int>();
+                for (int i = 0; i < 5; i++)
                 {
-                    challenge.RunChallenge(theAdventurer);
+                    challengeList.Add(Roll(challenges.Count));
+                }
+                // Loop through all the challenges and subject the Adventurer to them
+                foreach (int index in challengeList)
+                {
+                    challenges[index].RunChallenge(theAdventurer);
                 }
 
                 // This code examines how Awesome the Adventurer is after completing the challenges
@@ -102,6 +122,7 @@ namespace Quest
                 {
                     playAgain = true;
                     Console.Clear();
+
                 }
                 else
                 {
