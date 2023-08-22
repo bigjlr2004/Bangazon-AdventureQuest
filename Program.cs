@@ -86,7 +86,8 @@ namespace Quest
             {
                 twoPlusTwo, theAnswer, whatSecond, guessRandom, favoriteBeatle, howManyStates, noRoman, popularNumber, luckiestNumber, howManyContinents, alphabetNumber
             };
-
+                theAdventurer.Awesomeness = theAdventurer.Awesomeness + (correctAnswers * 10);
+                Console.WriteLine($"{theAdventurer.Name}, your awesomeness level is {theAdventurer.Awesomeness}.");
                 List<int> challengeList = new List<int>();
                 for (int i = 0; i < 5; i++)
                 {
